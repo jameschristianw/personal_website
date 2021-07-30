@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:personal_website/pages/HomeScreen.dart';
+import 'package:personal_website/providers/GlobalProvider.dart';
 import 'package:provider/provider.dart';
-
-import '../pages/HomeScreen.dart';
-import '../providers/GlobalProvider.dart';
 
 class AppBarActionButton extends StatelessWidget {
   final String? title;
@@ -33,24 +32,18 @@ class AppBarActionButton extends StatelessWidget {
           fontSize: 16,
         ),
       ),
-      style: ButtonStyle(
-        backgroundColor: provider.currentPage == routeName &&
-                provider.currentPage != HomeScreen.routeName
-            ? MaterialStateProperty.resolveWith(
+      style: provider.currentPage == routeName &&
+              provider.currentPage != HomeScreen.routeName
+          ? ButtonStyle(
+              backgroundColor: MaterialStateProperty.resolveWith(
                 (states) => Colors.amber.shade700,
-              )
-            : null,
-        shape: MaterialStateProperty.resolveWith(
-          (states) => RoundedRectangleBorder(
-            borderRadius: BorderRadius.zero,
-          ),
-        ),
-        overlayColor: routeName == HomeScreen.routeName
-            ? MaterialStateProperty.resolveWith(
-                (states) => Colors.transparent,
-              )
-            : null,
-      ),
+              ),
+              shape: MaterialStateProperty.resolveWith(
+                (states) => RoundedRectangleBorder(
+                  borderRadius: BorderRadius.zero,
+                ),
+              ))
+          : null,
     );
   }
 }
