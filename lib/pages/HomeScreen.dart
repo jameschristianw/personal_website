@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:personal_website/pages/AboutMeScreen.dart';
-import 'package:personal_website/pages/EducationAndCourseScreen.dart';
-import 'package:personal_website/pages/ExperiencesScreen.dart';
-import 'package:personal_website/pages/PortfoliosScreen.dart';
-import 'package:personal_website/widgets/AppBarActionButton.dart';
 
+import '../widgets/MyAppBar.dart';
 import '../widgets/CustomDrawer.dart';
-import '../constants/AppBarActionList.dart';
 
 class HomeScreen extends StatelessWidget {
   static const pageTitle = "Home";
@@ -19,16 +14,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.amber,
-        title: AppBarActionButton(
-          title: HomeScreen.pageTitle,
-          routeName: HomeScreen.routeName,
-        ),
-        actions: appBarActionList,
-      ),
+      appBar: MyAppBar(),
       body: Container(
         color: Colors.white,
       ),
